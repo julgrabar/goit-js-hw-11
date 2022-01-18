@@ -1,5 +1,3 @@
-
-
 import './css/styles.css';
 import Notiflix from 'notiflix';
 import GalleryService from './gallery-service'
@@ -19,7 +17,6 @@ refs.searchForm.addEventListener('submit', onSearchSubmit);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 async function onSearchSubmit(event){
-    ;
     event.preventDefault();
     galleryService.page=0;
     refs.galleryContainer.innerHTML='';
@@ -32,7 +29,7 @@ async function onSearchSubmit(event){
                     refs.loadMoreBtn.classList.add('visually-hidden');
                     return;
                 }
-                 makeGalleryCards(response);
+                makeGalleryCards(response);
                 Notiflix.Notify.success(`Hooray! We found ${response.totalHits} images.`)
 
         } catch (error) {
