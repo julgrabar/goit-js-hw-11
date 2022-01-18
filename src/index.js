@@ -11,15 +11,17 @@ const refs = {
     loadMoreBtn: document.querySelector('.load-more')
 }
 
-refs.loadMoreBtn.classList.add('visually-hidden');
+
 
 refs.searchForm.addEventListener('submit', onSearchSubmit);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 async function onSearchSubmit(event){
     event.preventDefault();
+    refs.loadMoreBtn.classList.add('visually-hidden');
     galleryService.page=0;
     refs.galleryContainer.innerHTML='';
+
     galleryService.searchRequest = event.currentTarget.searchQuery.value.trim();
     if(!galleryService.searchRequest){return}
     try{
