@@ -29,6 +29,7 @@
     "axios": "^0.24.0",
     "infinite-scroll": "^4.0.1",
     "infinitescroll": "^0.1.9",
-    "notiflix": "^3.2.2"
+    "notiflix": "^3.2.2",
+    "simplelightbox": "^2.10.1"
   }
 }

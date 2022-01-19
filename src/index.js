@@ -31,6 +31,7 @@ async function onSearchSubmit(event){
                     refs.loadMoreBtn.classList.add('visually-hidden');
                     return;
                 }
+                checkLostImages(response);
                 makeGalleryCards(response);
                 Notiflix.Notify.success(`Hooray! We found ${response.totalHits} images.`)
 
@@ -44,6 +45,7 @@ async function onSearchSubmit(event){
 async function onLoadMore(){
     try{
     const response = await galleryService.findImages();
+    checkLostImages(response);
     makeGalleryCards(response);   
     } catch (error) {
         console.log(error.message);
@@ -82,7 +84,7 @@ refs.galleryContainer.insertAdjacentHTML('beforeend',markup);
 }
 
 
-export default function checkLostImages(response){
+ function checkLostImages(response){
     const lostImages=response.totalHits - galleryService.page*40;
     if(lostImages>0){
         refs.loadMoreBtn.classList.remove('visually-hidden');
