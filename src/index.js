@@ -85,7 +85,7 @@ refs.galleryContainer.insertAdjacentHTML('beforeend',markup);
 
 
  function checkLostImages(response){
-    const lostImages=response.totalHits - galleryService.page*40;
+    const lostImages=response.totalHits - galleryService.page*galleryService.perPage;
     if(lostImages>0){
         refs.loadMoreBtn.classList.remove('visually-hidden');
     }else if (response.totalHits!==0){
